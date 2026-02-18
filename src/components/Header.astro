@@ -13,8 +13,17 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
   <nav class="max-w-7xl mx-auto px-8 py-4">
     <ul class="flex items-center gap-8 justify-center">
       <li>
+        <a 
+          href="/" 
+          class="text-gray-700 hover:text-black transition-colors font-medium"
+        >
+          Home
+      </a>
+    </li>
+
+      <li>
         <a
-          href="#about"
+          href="/about"
           class="text-gray-700 hover:text-black transition-colors font-medium"
         >
           About
@@ -24,7 +33,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
         hasProjects && (
           <li>
             <a
-              href="#projects"
+              href="/projects"
               class="text-gray-700 hover:text-black transition-colors font-medium"
             >
               Projects
@@ -48,7 +57,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
         hasEducation && (
           <li>
             <a
-              href="#education"
+              href="/#education"
               class="text-gray-700 hover:text-black transition-colors font-medium"
             >
               Education
@@ -56,6 +65,12 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
           </li>
         )
       }
+      <li>
+        <a href="/art" class="text-gray-700 hover:text-black transition-colors font-medium">
+         Art
+        </a>
+      </li>
+
     </ul>
   </nav>
 </header>

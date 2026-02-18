@@ -1,5 +1,61 @@
 @import "tailwindcss";
 
 body {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: "Inter", sans-serif;
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.about-text h1 {
+  margin-bottom: 1.5rem;
+}
+
+.about-text p {
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.about-title {
+  font-size: 10 rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin-bottom: 2rem;
+}
+
+.about-title {
+  font-size: 64px !important;
+  margin-bottom: 2rem;
+}
+
+.about-title {
+  font-size: 3.5rem;
+  white-space: nowrap;
+}
+
+.prose img {
+  width: 100%;
+  height: auto;
+  display: block;
 }

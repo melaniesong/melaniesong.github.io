@@ -1,11 +1,11 @@
 export const siteConfig = {
-  name: "Ryan Fitzgerald",
-  title: "Senior Software Engineer",
-  description: "Portfolio website of Ryan Fitzgerald",
-  accentColor: "#1d4ed8",
+  name: "Melanie Song",
+  title: "I’m a product designer and researcher who enjoys wearing many hats - blending design, research, product strategy, and business analysis to build inclusive, human-centered products.",
+  description: "Portfolio website of Melanie Song",
+  accentColor: "#919EC6",
   social: {
-    email: "your-email@example.com",
-    linkedin: "https://linkedin.com/in/yourprofile",
+    email: "melaniesong0620@gmail.com",
+    linkedin: "https://www.linkedin.com/in/melanie-song/",
     twitter: "https://x.com/rfitzio",
     github: "https://github.com/RyanFitzgerald",
   },
@@ -14,78 +14,40 @@ export const siteConfig = {
   skills: ["Javascript", "React", "Node.js", "Python", "AWS", "Docker"],
   projects: [
     {
-      name: "AI Dev Roundup Newsletter",
+      name: "Multimodal info system + UW Scout Re-Design",
       description:
-        "One concise email. Five minutes. Every Tuesday. Essential AI news & trends, production-ready libraries, powerful AI tools, and real-world code examples",
-      link: "https://aidevroundup.com/?ref=devportfolio",
-      skills: ["React", "Node.js", "AWS"],
+        "Redesigning UW Scout to increase campus predictability",
+      slug: "sensory-accessibility",
+      skills: ["Inclusive Design", "Multimodal Systems", "Service Experience"],
     },
     {
-      name: "Chrome Extension Mastery: Build Full-Stack Extensions with React & Node.js",
+      name: "Baking App Design",
       description:
-        "Master the art of building production-ready, full-stack Chrome Extensions using modern web technologies and best practices",
-      link: "https://fullstackextensions.com/?ref=devportfolio",
-      skills: ["React", "Node.js", "AWS"],
+        "A Case Study about the design of a mobile application used to help the user calculate amount of ingredients needed.",
+      slug: "baking-app",
+      skills: ["Product Design", "Task Optimization", "Consumer Product"],
     },
-    {
-      name: "ExtensionKit",
-      description:
-        "Kit to jump-start your Chrome extension projects with a variety of battle-tested starter templates & examples",
-      link: "https://extensionkit.io/?ref=devportfolio",
-      skills: ["React", "Node.js", "AWS"],
-    },
-  ],
-  experience: [
-    {
-      company: "Tech Company",
-      title: "Senior Software Engineer",
-      dateRange: "Jan 2022 - Present",
-      bullets: [
-        "Led development of microservices architecture serving 1M+ users",
-        "Reduced API response times by 40% through optimization",
-        "Mentored team of 5 junior developers",
-      ],
-    },
-    {
-      company: "Startup Inc",
-      title: "Full Stack Developer",
-      dateRange: "Jun 2020 - Dec 2021",
-      bullets: [
-        "Built and launched MVP product from scratch using React and Node.js",
-        "Implemented CI/CD pipeline reducing deployment time by 60%",
-        "Collaborated with product team to define technical requirements",
-      ],
-    },
-    {
-      company: "Digital Agency",
-      title: "Frontend Developer",
-      dateRange: "Aug 2018 - May 2020",
-      bullets: [
-        "Developed responsive web applications for 20+ clients",
-        "Improved site performance scores by 35% on average",
-        "Introduced modern JavaScript frameworks to legacy codebases",
-      ],
-    },
+
   ],
   education: [
     {
-      school: "University Name",
-      degree: "Bachelor of Science in Computer Science",
-      dateRange: "2014 - 2018",
+      school: "University of Washington, College of Engineering",
+      degree: "Masters in Human-Centered Design and Engineering",
+      dateRange: "2025 - present",
       achievements: [
-        "Graduated Magna Cum Laude with 3.8 GPA",
-        "Dean's List all semesters",
-        "President of Computer Science Club",
+        "End-to-end UX research and prototyping",
+        "Translating ambiguity into clear product direction",
+        "Designing accessible, scalable digital experiences",
       ],
     },
     {
-      school: "Online Platform",
-      degree: "Full Stack Development Certificate",
-      dateRange: "2019",
+      school: "New York University, Stern School of Business",
+      degree: "Bachelor of Science in Business",
+      dateRange: "2016 - 2020",
       achievements: [
-        "Completed 500+ hours of coursework",
-        "Built 10+ portfolio projects",
-        "Specialized in React and Node.js",
+        "Concentrations in Finance + Data Science, Minor in Studio Art ",
+        "Finalist in 3+ case competitions",
+        "Strong foundation in analytical and quantitative reasoning",
       ],
     },
   ],
