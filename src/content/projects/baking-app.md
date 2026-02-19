@@ -9,7 +9,7 @@ tools: ["Figma", "Wireframes", "Interaction Modeling", "Information Architecture
 tags: ["Product Design", "Task Optimization", "Consumer Product"]
 cover: "/projects/baking-app/baking-app-thumbnail.png"
 ---
-![Sensory Accessibility](/public/projects/baking-app/baking-app.png)
+![Sensory Accessibility](/projects/baking-app/baking-app.png)
 
 
 <!-- 

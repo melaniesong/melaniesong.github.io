@@ -12,7 +12,7 @@ cover: "/projects/sensory-accessibility/thumbnail-sensory-accessibility.png"
 
 <!--![Sensory Accessibility](/public/projects/sensory-accessibility/sensory-acessibility.png)-->
 
-![Sensory Accessibility](/public/projects/sensory-accessibility/sensory-accessibility.png)
+![Sensory Accessibility](/projects/sensory-accessibility/sensory-accessibility.png)
 
 
 
