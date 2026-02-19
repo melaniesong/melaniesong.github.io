@@ -17,6 +17,7 @@ cover: "/projects/sensory-accessibility/thumbnail-sensory-accessibility.png"
 
 
 
+
 <!-- 
 ## Background
 What was the product? Who were the users? What was broken?
