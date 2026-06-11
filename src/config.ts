@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Melanie Song",
-  title: "I’m a product designer and researcher who enjoys wearing many hats - blending design, research, product strategy, and business analysis to build inclusive, human-centered products.",
+  title: "Finance brain. Design hands. I bring the business, the data, and the eye — all in one.",
   description: "Portfolio website of Melanie Song",
   accentColor: "#919EC6",
   social: {
