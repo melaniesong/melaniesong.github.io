@@ -12,9 +12,9 @@ export const siteConfig = {
   skills: ["Javascript", "React", "Node.js", "Python", "AWS", "Docker"],
   projects: [
     {
-      name: "Multimodal info system + UW Scout Re-Design",
+      name: "Designing for Predictability in Campus Spaces",
       description:
-        "Redesigning UW Scout to increase campus predictability",
+        "Helping students identify sensory-friendly study spaces through real-time environmental information.",
       slug: "sensory-accessibility",
       skills: ["Inclusive Design", "Multimodal Systems", "Service Experience"],
     },

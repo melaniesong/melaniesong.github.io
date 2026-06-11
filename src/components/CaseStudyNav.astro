@@ -1,0 +1,149 @@
+---
+import { siteConfig } from "../config";
+
+type NavItem = {
+  id: string;
+  label: string;
+};
+
+type Props = {
+  items: NavItem[];
+};
+
+const { items } = Astro.props;
+const accentColor = siteConfig.accentColor;
+---
+
+{items.length > 0 && (
+  <>
+    <nav
+      class="case-study-nav hidden lg:block"
+      aria-label="Case study sections"
+      data-case-study-nav
+    >
+      <a
+        href="/projects"
+        class="mb-8 inline-block text-sm text-gray-500 transition-colors hover:text-gray-900"
+      >
+        ← Back to Projects
+      </a>
+
+      <ul class="space-y-1">
+        {items.map((item) => (
+          <li>
+            <a
+              href={`#${item.id}`}
+              class="case-study-nav-link block rounded-lg px-3 py-2 text-sm text-gray-600 transition-colors hover:text-gray-900"
+              data-nav-target={item.id}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <nav
+      class="case-study-nav-mobile lg:hidden"
+      aria-label="Case study sections"
+      data-case-study-nav-mobile
+    >
+      <a
+        href="/projects"
+        class="mb-4 inline-block text-sm text-gray-500 transition-colors hover:text-gray-900"
+      >
+        ← Back to Projects
+      </a>
+
+      <div class="flex gap-2 overflow-x-auto pb-2">
+        {items.map((item) => (
+          <a
+            href={`#${item.id}`}
+            class="case-study-nav-link shrink-0 rounded-full border border-gray-200 px-3 py-1.5 text-xs text-gray-600 transition-colors hover:border-gray-300 hover:text-gray-900"
+            data-nav-target={item.id}
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+    </nav>
+  </>
+)}
+
+<style define:vars={{ accentColor }}>
+  .case-study-nav {
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+    padding-right: 1rem;
+  }
+
+  .case-study-nav-link.is-active {
+    color: var(--accentColor);
+    font-weight: 500;
+    background-color: color-mix(in srgb, var(--accentColor) 12%, white);
+  }
+
+  .case-study-nav-mobile .case-study-nav-link.is-active {
+    border-color: var(--accentColor);
+    color: var(--accentColor);
+    background-color: color-mix(in srgb, var(--accentColor) 8%, white);
+  }
+</style>
+
+<script>
+  function initCaseStudyNav() {
+    const links = document.querySelectorAll<HTMLAnchorElement>(
+      "[data-nav-target]",
+    );
+    if (!links.length) return;
+
+    const sectionIds = Array.from(links).map(
+      (link) => link.dataset.navTarget!,
+    );
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (!sections.length) return;
+
+    const setActive = (id: string) => {
+      links.forEach((link) => {
+        link.classList.toggle(
+          "is-active",
+          link.dataset.navTarget === id,
+        );
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible[0]?.target.id) {
+          setActive(visible[0].target.id);
+        }
+      },
+      {
+        rootMargin: "-20% 0px -60% 0px",
+        threshold: [0, 0.25, 0.5, 1],
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        const id = link.dataset.navTarget;
+        if (id) setActive(id);
+      });
+    });
+  }
+
+  initCaseStudyNav();
+  document.addEventListener("astro:page-load", initCaseStudyNav);
+</script>

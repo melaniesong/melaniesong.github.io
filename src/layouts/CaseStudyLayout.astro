@@ -1,0 +1,222 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import CaseStudyNav from "../components/CaseStudyNav.astro";
+import { siteConfig } from "../config";
+import "../styles/global.css";
+
+type NavItem = {
+  id: string;
+  label: string;
+};
+
+type Metric = {
+  label: string;
+  value: string;
+};
+
+type Props = {
+  title: string;
+  descriptor: string;
+  problem?: string;
+  impact?: string;
+  role?: string;
+  timeline?: string;
+  teamSize?: string;
+  responsibilities?: string;
+  client?: string;
+  tools?: string[];
+  cover?: string;
+  nav?: NavItem[];
+  outcomes?: string[];
+  metrics?: Metric[];
+  slug?: string;
+};
+
+const {
+  title,
+  descriptor,
+  problem,
+  impact,
+  role,
+  timeline,
+  teamSize,
+  responsibilities,
+  client,
+  tools = [],
+  cover,
+  nav = [],
+  outcomes = [],
+  metrics = [],
+  slug,
+} = Astro.props;
+
+const accentColor = siteConfig.accentColor;
+const pageDescription = descriptor || siteConfig.description;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={pageDescription} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title} - {siteConfig.name}</title>
+  </head>
+
+  <body class:list={["case-study-page", slug && `case-study--${slug}`]}>
+    <Header />
+
+    <main class="case-study-main px-6 pb-16 pt-28 sm:px-10 lg:px-16">
+      <div class="mx-auto max-w-7xl">
+        <div
+          class:list={[
+            "case-study-grid",
+            nav.length > 0 && "case-study-grid--with-nav",
+          ]}
+        >
+          {nav.length > 0 && (
+            <aside class="case-study-sidebar">
+              <CaseStudyNav items={nav} />
+            </aside>
+          )}
+
+          <div class="case-study-content">
+            {nav.length === 0 && (
+              <a
+                href="/projects"
+                class="mb-8 inline-block text-sm text-gray-500 transition-colors hover:text-gray-900"
+              >
+                ← Back to Projects
+              </a>
+            )}
+
+            {cover && (
+              <div class="case-study-cover">
+                <img
+                  src={cover}
+                  alt={`${title} cover`}
+                  class="case-study-cover-image"
+                  loading="eager"
+                />
+              </div>
+            )}
+
+            <header id="case-study-header" class="case-study-header">
+              <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+                {title}
+              </h1>
+
+              {descriptor && (
+                <p class="mt-4 max-w-3xl text-lg leading-relaxed text-gray-600">
+                  {descriptor}
+                </p>
+              )}
+
+              {(role || timeline || teamSize || responsibilities || client || tools.length > 0) && (
+                <dl class="case-study-meta mt-8">
+                  {role && (
+                    <div class="case-study-meta-item">
+                      <dt>Role</dt>
+                      <dd>{role}</dd>
+                    </div>
+                  )}
+                  {timeline && (
+                    <div class="case-study-meta-item">
+                      <dt>Timeline</dt>
+                      <dd>{timeline}</dd>
+                    </div>
+                  )}
+                  {teamSize && (
+                    <div class="case-study-meta-item">
+                      <dt>Team</dt>
+                      <dd>{teamSize}</dd>
+                    </div>
+                  )}
+                  {responsibilities && (
+                    <div class="case-study-meta-item case-study-meta-item--wide">
+                      <dt>Responsibilities</dt>
+                      <dd>{responsibilities}</dd>
+                    </div>
+                  )}
+                  {client && (
+                    <div class="case-study-meta-item">
+                      <dt>Client</dt>
+                      <dd>{client}</dd>
+                    </div>
+                  )}
+                  {tools.length > 0 && (
+                    <div class="case-study-meta-item case-study-meta-item--wide">
+                      <dt>Tools</dt>
+                      <dd>{tools.join(", ")}</dd>
+                    </div>
+                  )}
+                </dl>
+              )}
+
+              {problem && (
+                <section class="case-study-block mt-10">
+                  <h2 class="case-study-block-title">Problem</h2>
+                  <p class="case-study-block-text">{problem}</p>
+                </section>
+              )}
+
+              {impact && (
+                <section class="case-study-block mt-8">
+                  <h2 class="case-study-block-title">Impact</h2>
+                  <p class="case-study-impact">{impact}</p>
+                </section>
+              )}
+
+              {outcomes.length > 0 && (
+                <section id="outcomes" class="case-study-block mt-8">
+                  <h2 class="case-study-block-title">Outcomes</h2>
+                  <ul class="mt-4 space-y-3">
+                    {outcomes.map((outcome) => (
+                      <li class="flex gap-3 text-gray-700">
+                        <span
+                          class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                          style={{ backgroundColor: accentColor }}
+                        />
+                        <span>{outcome}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              {metrics.length > 0 && (
+                <section class="case-study-block mt-8">
+                  <h2 class="case-study-block-title">Validation</h2>
+                  <dl class="mt-4 grid gap-4 sm:grid-cols-2">
+                    {metrics.map((metric) => (
+                      <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <dt class="text-sm text-gray-500">{metric.label}</dt>
+                        <dd class="mt-1 text-xl font-semibold text-gray-900">
+                          {metric.value}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </section>
+              )}
+            </header>
+
+            <article class="case-study-body prose prose-neutral mt-12 max-w-none">
+              <slot />
+            </article>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>
