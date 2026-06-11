@@ -218,12 +218,12 @@ body {
 
 /* Standalone section images (spacing matches cover + decision-card-image) */
 .case-study-body .section-image {
-  margin: 1.5rem 0 2.5rem;
+  margin: 3rem 0 5rem;
 }
 
 @media (min-width: 1024px) {
   .case-study-body .section-image {
-    margin-bottom: 3rem;
+    margin-bottom: 6rem;
   }
 }
 
@@ -232,7 +232,6 @@ body {
   height: auto;
   display: block;
   border-radius: 0.75rem;
-  border: 1px solid #e5e7eb;
 }
 
 /* sensory-accessibility.md only: side-by-side image rows */

@@ -277,4 +277,9 @@ Our solution addresses three challenges uncovered through research: helping stud
 This project changed how I think about accessibility. I initially approached the challenge as a question of accommodation, but the research revealed that information itself can be an accessibility tool. The experience reinforced the importance of defining the right problem before designing a solution.
 
 If I continued the project, I would explore how the system could support campus events and temporary spaces where sensory conditions change frequently.
+
+<div class="section-image">
+  <img src="/projects/sensory-accessibility/final-thoughts.png" alt="Final thoughts" />
+</div>
+
 </section>
