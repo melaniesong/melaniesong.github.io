@@ -18,6 +18,8 @@ metrics:
     value: "14 students"
   - label: "Semi-structured Interviews and Guided Tours"
     value: "5 participants"
+  - label: "Semi-structured Interviews with Subject Matter Experts"
+    value: "2 participants"
   - label: "Usability tests"
     value: "5 participants"
 
@@ -68,12 +70,44 @@ One participant described avoiding unfamiliar campus events because she couldn't
 
 To understand these experiences, we worked with students who regularly navigate sensory challenges in academic and social settings.
 
-Participants included:
+### Participants
 - Students registered with DRS
 - Students who self-identified as having sensory sensitivities
 - Accessibility stakeholders
 - Event organizers and campus staff
 
+### Research Methods
+
+<table class="research-methods-table">
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Literature Review</td>
+      <td>Understand sensory accessibility challenges and existing solutions</td>
+    </tr>
+    <tr>
+      <td>Survey (14 responses)</td>
+      <td>Identify common barriers and patterns across students</td>
+    </tr>
+     <tr>
+      <td>Guided Tours (5 participants)</td>
+      <td>Observe sensory experiences in real campus spaces</td>
+    </tr>
+    <tr>
+      <td>Semi-structured Interview (5 participants)</td>
+      <td>Explore individual needs, behaviors, and strategies for navigating sensory challenges</td>
+    </tr>
+    <tr>
+      <td>Stakeholder Interviews </td>
+      <td>Understand institutional priorities, constraints, and opportunities for implementation</td>
+    </tr>
+  </tbody>
+</table>
 
 </section>
 

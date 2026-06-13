@@ -16,14 +16,16 @@ export const siteConfig = {
       description:
         "Helping students identify sensory-friendly study spaces through real-time environmental information.",
       slug: "sensory-accessibility",
-      skills: ["Inclusive Design", "Multimodal Systems", "Service Experience"],
+      thumbnail: "/projects/sensory-accessibility/thumbnail-sensory-accessibility.png",
+      skills: ["Inclusive Design", "Multimodal Systems", "Service Experience", "User Research"],
     },
     {
       name: "Baking App Design",
       description:
-        "A Case Study about the design of a mobile application used to help the user calculate amount of ingredients needed.",
+        "A mobile application designed to help home bakers organize recipes, manage ingredients, and navigate baking workflows with greater confidence.",
       slug: "baking-app",
-      skills: ["Product Design", "Task Optimization", "Consumer Product"],
+      thumbnail: "/projects/baking-app/baking-app-thumbnail.png",
+      skills: ["Product Design", "Task Optimization", "Consumer Product", "AI-Assisted Design"],
     },
 
   ],
