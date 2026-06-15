@@ -27,6 +27,14 @@ export const siteConfig = {
       thumbnail: "/projects/baking-app/baking-app-thumbnail.png",
       skills: ["Product Design", "Task Optimization", "Consumer Product", "AI-Assisted Design"],
     },
+    {
+      name: "Building a Digital Brand System for the University District Food Bank",
+      description:
+        "Creating a cohesive visual identity and website experience that helps community members find critical resources quickly.",
+      slug: "ud-food-bank",
+      thumbnail: "/projects/ud-food-bank/thumbnail-udfb.png",
+      skills: ["Visual Identity", "Design Systems", "Responsive Web Design", "Brand Strategy"],
+    },
 
   ],
   education: [
