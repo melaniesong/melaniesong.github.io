@@ -94,7 +94,11 @@ const accentColor = siteConfig.accentColor;
 </style>
 
 <script>
+  let caseStudyNavCleanup: (() => void) | undefined;
+
   function initCaseStudyNav() {
+    caseStudyNavCleanup?.();
+
     const links = document.querySelectorAll<HTMLAnchorElement>(
       "[data-nav-target]",
     );
@@ -104,10 +108,16 @@ const accentColor = siteConfig.accentColor;
       (link) => link.dataset.navTarget!,
     );
     const sections = sectionIds
-      .map((id) => document.getElementById(id))
+      .map((id) =>
+        document.querySelector<HTMLElement>(
+          `.case-study-body section#${CSS.escape(id)}`,
+        ),
+      )
       .filter((el): el is HTMLElement => el !== null);
 
     if (!sections.length) return;
+
+    const scrollOffset = 120;
 
     const setActive = (id: string) => {
       links.forEach((link) => {
@@ -118,30 +128,36 @@ const accentColor = siteConfig.accentColor;
       });
     };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    const updateActiveSection = () => {
+      let activeId = sections[0].id;
 
-        if (visible[0]?.target.id) {
-          setActive(visible[0].target.id);
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= scrollOffset) {
+          activeId = section.id;
         }
-      },
-      {
-        rootMargin: "-20% 0px -60% 0px",
-        threshold: [0, 0.25, 0.5, 1],
-      },
-    );
+      }
 
-    sections.forEach((section) => observer.observe(section));
+      setActive(activeId);
+    };
 
-    links.forEach((link) => {
-      link.addEventListener("click", () => {
-        const id = link.dataset.navTarget;
-        if (id) setActive(id);
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        updateActiveSection();
+        ticking = false;
       });
-    });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    updateActiveSection();
+
+    caseStudyNavCleanup = () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }
 
   initCaseStudyNav();

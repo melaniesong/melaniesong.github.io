@@ -218,5 +218,28 @@ const pageDescription = descriptor || siteConfig.description;
     </main>
 
     <Footer />
+
+    <script>
+      function initDecisionCards() {
+        document
+          .querySelectorAll(".case-study--sensory-accessibility .decision-card")
+          .forEach((card) => {
+            const header = card.querySelector<HTMLButtonElement>(
+              ".decision-card-header",
+            );
+            if (!header || header.dataset.bound) return;
+            header.dataset.bound = "true";
+
+            header.addEventListener("click", () => {
+              const isExpanded = header.getAttribute("aria-expanded") === "true";
+              header.setAttribute("aria-expanded", String(!isExpanded));
+              card.classList.toggle("is-collapsed", isExpanded);
+            });
+          });
+      }
+
+      initDecisionCards();
+      document.addEventListener("astro:page-load", initDecisionCards);
+    </script>
   </body>
 </html>

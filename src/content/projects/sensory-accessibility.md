@@ -205,11 +205,16 @@ Our solution addresses three challenges uncovered through research: helping stud
 <div class="decision-cards">
 
 <article class="decision-card">
-  <div class="decision-card-header">
-    <span class="decision-card-number">01</span>
-    <h3 class="decision-card-title">Making Scout Discoverable</h3>
-  </div>
-  <div class="decision-card-body">
+  <button type="button" class="decision-card-header" aria-expanded="true" aria-controls="decision-body-01">
+    <span class="decision-card-header-main">
+      <span class="decision-card-number">01</span>
+      <span class="decision-card-title">Making Scout Discoverable</span>
+    </span>
+    <span class="decision-card-toggle" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </span>
+  </button>
+  <div class="decision-card-body" id="decision-body-01">
     <div class="decision-block">
       <h4 class="decision-block-label">Research Insight</h4>
       <p>0 of 5 guided-tour participants had heard of UW Scout.</p>
@@ -229,11 +234,16 @@ Our solution addresses three challenges uncovered through research: helping stud
 </article>
 
 <article class="decision-card">
-  <div class="decision-card-header">
-    <span class="decision-card-number">02</span>
-    <h3 class="decision-card-title">Designing for Predictability</h3>
-  </div>
-  <div class="decision-card-body">
+  <button type="button" class="decision-card-header" aria-expanded="true" aria-controls="decision-body-02">
+    <span class="decision-card-header-main">
+      <span class="decision-card-number">02</span>
+      <span class="decision-card-title">Designing for Predictability</span>
+    </span>
+    <span class="decision-card-toggle" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </span>
+  </button>
+  <div class="decision-card-body" id="decision-body-02">
     <div class="decision-block">
       <h4 class="decision-block-label">Research Insight</h4>
       <p>Students struggled with uncertainty.</p>
@@ -253,11 +263,16 @@ Our solution addresses three challenges uncovered through research: helping stud
 </article>
 
 <article class="decision-card">
-  <div class="decision-card-header">
-    <span class="decision-card-number">03</span>
-    <h3 class="decision-card-title">Reducing Cognitive Load</h3>
-  </div>
-  <div class="decision-card-body">
+  <button type="button" class="decision-card-header" aria-expanded="true" aria-controls="decision-body-03">
+    <span class="decision-card-header-main">
+      <span class="decision-card-number">03</span>
+      <span class="decision-card-title">Reducing Cognitive Load</span>
+    </span>
+    <span class="decision-card-toggle" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </span>
+  </button>
+  <div class="decision-card-body" id="decision-body-03">
     <div class="decision-block">
       <h4 class="decision-block-label">Research Insight</h4>
       <p>Participants preferred simpler screens.</p>
@@ -277,11 +292,16 @@ Our solution addresses three challenges uncovered through research: helping stud
 </article>
 
 <article class="decision-card">
-  <div class="decision-card-header">
-    <span class="decision-card-number">04</span>
-    <h3 class="decision-card-title">Supporting Different Sensory Preferences</h3>
-  </div>
-  <div class="decision-card-body">
+  <button type="button" class="decision-card-header" aria-expanded="true" aria-controls="decision-body-04">
+    <span class="decision-card-header-main">
+      <span class="decision-card-number">04</span>
+      <span class="decision-card-title">Supporting Different Sensory Preferences</span>
+    </span>
+    <span class="decision-card-toggle" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </span>
+  </button>
+  <div class="decision-card-body" id="decision-body-04">
     <div class="decision-block">
       <h4 class="decision-block-label">Research Insight</h4>
       <p>No universally accessible space existed.</p>
