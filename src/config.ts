@@ -17,7 +17,7 @@ export const siteConfig = {
         "Helping students identify sensory-friendly study spaces through real-time environmental information.",
       slug: "sensory-accessibility",
       thumbnail: "/projects/sensory-accessibility/thumbnail-sensory-accessibility.png",
-      skills: ["Inclusive Design", "Multimodal Systems", "Service Experience", "User Research"],
+      skills: ["Inclusive Design", "Service Experience", "User Research"],
     },
     {
       name: "Baking App Design",
@@ -25,7 +25,7 @@ export const siteConfig = {
         "A mobile application designed to help home bakers organize recipes, manage ingredients, and navigate baking workflows with greater confidence.",
       slug: "baking-app",
       thumbnail: "/projects/baking-app/baking-app-thumbnail.png",
-      skills: ["Product Design", "Task Optimization", "Consumer Product", "AI-Assisted Design"],
+      skills: ["Product Design", "Consumer Product", "AI-Assisted Design"],
     },
     {
       name: "Building a Digital Brand System for the University District Food Bank",
@@ -33,7 +33,7 @@ export const siteConfig = {
         "Creating a cohesive visual identity and website experience that helps community members find critical resources quickly.",
       slug: "ud-food-bank",
       thumbnail: "/projects/ud-food-bank/thumbnail-udfb.png",
-      skills: ["Visual Identity", "Design Systems", "Responsive Web Design", "Brand Strategy"],
+      skills: ["Visual Identity", "Design Systems", "Responsive Web Design"],
     },
 
   ],
