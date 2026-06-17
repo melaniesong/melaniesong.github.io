@@ -130,28 +130,42 @@ import { siteConfig } from "../config";
       stroke-width={0}></rect>
   </svg>
   <div class="h-full mx-auto p-8 sm:p-12 md:p-24 flex items-center">
-    <div>
+    <div
+      id="hero-typing-root"
+      data-name={siteConfig.name}
+      data-accent={siteConfig.accentColor}
+    >
       <h2
-        class="text-pretty text-xl sm:text-2xl md:text-5xl font-bold tracking-tight text-gray-700 animate-fade-in"
+        id="hero-line-1"
+        class="text-pretty text-xl sm:text-2xl md:text-5xl font-bold tracking-tight text-gray-700 min-h-[1.2em]"
+        aria-live="polite"
       >
-        Hello! 👋
+        <span id="hero-typing-line-1"></span><span
+          id="hero-cursor-line-1"
+          class="typing-cursor"
+          aria-hidden="true"></span>
       </h2>
       <h1
-        class="mt-6 sm:mt-8 md:mt-10 text-pretty text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight text-gray-800 animate-fade-in animation-delay-200"
+        id="hero-line-2"
+        class="mt-6 sm:mt-8 md:mt-10 text-pretty text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight text-gray-800 min-h-[1.2em]"
       >
-        I'm <span style={{ color: siteConfig.accentColor }}
-          >{siteConfig.name}</span
-        >
+        <span id="hero-typing-line-2"></span><span
+          id="hero-cursor-line-2"
+          class="typing-cursor"
+          style="display: none"
+          aria-hidden="true"></span>
       </h1>
       <p
-        class="mt-4 sm:mt-6 md:mt-8 text-pretty text-base sm:text-lg md:text-xl/8 font-medium text-gray-600 animate-fade-in animation-delay-400"
+        id="hero-subtitle"
+        class="hero-subtitle mt-4 sm:mt-6 md:mt-8 text-pretty text-base sm:text-lg md:text-xl/8 font-medium text-gray-600"
       >
         {siteConfig.title}
       </p>
     </div>
   </div>
   <div
-    class="absolute bottom-0 left-0 right-0 p-8 sm:p-12 md:p-24 flex gap-x-4 sm:gap-x-6 md:gap-x-8 text-gray-700 animate-fade-in animation-delay-600"
+    id="hero-social"
+    class="hero-social absolute bottom-0 left-0 right-0 p-8 sm:p-12 md:p-24 flex gap-x-4 sm:gap-x-6 md:gap-x-8 text-gray-700"
   >
     {
       siteConfig.social?.email && (
@@ -275,31 +289,108 @@ import { siteConfig } from "../config";
 </div>
 
 <style>
-  @keyframes fadeIn {
-    from {
+  .typing-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 0.85em;
+    margin-left: 2px;
+    vertical-align: baseline;
+    background-color: var(--accent-color);
+    animation: blink 0.9s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% {
       opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
     }
   }
 
-  .animate-fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
+  .hero-subtitle {
     opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s ease-out;
   }
 
-  .animation-delay-200 {
-    animation-delay: 0.2s;
+  .hero-subtitle--visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .animation-delay-400 {
-    animation-delay: 0.4s;
+  .hero-social {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.7s ease-out 0.15s,
+      transform 0.7s ease-out 0.15s;
   }
 
-  .animation-delay-600 {
-    animation-delay: 0.6s;
+  .hero-social--visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 </style>
+
+<script>
+  function delay(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  function showHeroExtras() {
+    document.getElementById("hero-subtitle")?.classList.add("hero-subtitle--visible");
+    document.getElementById("hero-social")?.classList.add("hero-social--visible");
+  }
+
+  async function typeHeroGreeting() {
+    const root = document.getElementById("hero-typing-root");
+    const line1El = document.getElementById("hero-typing-line-1");
+    const line2El = document.getElementById("hero-typing-line-2");
+    const cursor1 = document.getElementById("hero-cursor-line-1");
+    const cursor2 = document.getElementById("hero-cursor-line-2");
+
+    if (!root || !line1El || !line2El || !cursor1 || !cursor2) return;
+
+    const name = root.dataset.name ?? "";
+    const accent = root.dataset.accent ?? "#919EC6";
+    const greeting = "Hello! 👋";
+    const namePrefix = "I'm ";
+    const charDelay = 55;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      line1El.textContent = greeting;
+      line2El.innerHTML = `${namePrefix}<span style="color: ${accent}">${name}</span>`;
+      cursor1.style.display = "none";
+      cursor2.style.display = "none";
+      showHeroExtras();
+      return;
+    }
+
+    for (const char of greeting) {
+      line1El.textContent += char;
+      await delay(charDelay);
+    }
+
+    cursor1.style.display = "none";
+    cursor2.style.display = "inline-block";
+
+    for (const char of namePrefix) {
+      line2El.textContent += char;
+      await delay(charDelay);
+    }
+
+    const nameSpan = document.createElement("span");
+    nameSpan.style.color = accent;
+    line2El.appendChild(nameSpan);
+
+    for (const char of name) {
+      nameSpan.textContent += char;
+      await delay(charDelay);
+    }
+
+    cursor2.style.display = "none";
+    showHeroExtras();
+  }
+
+  typeHeroGreeting();
+</script>
