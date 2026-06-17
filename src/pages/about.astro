@@ -1,27 +1,40 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { siteConfig } from "../config";
 ---
 
 <Layout title="About">
-  <section class="about-container">
+  <section
+    class="about-container"
+    style={`--accent-color: ${siteConfig.accentColor}`}
+  >
     <div class="about-image">
       <img src="/images/profile.jpg" alt="Melanie Song portrait" />
     </div>
 
     <div class="about-text">
     
-      <h1 class="about-title">Hello Again!</h1>
+      <h1 class="text-pretty text-xl sm:text-2xl md:text-5xl font-bold tracking-tight text-gray-700">
+        Hello Again!
+      </h1>
 
       <p>
-        I've always been someone who <strong>makes things</strong>. Growing up, that looked like sketchbooks and studio art classes. Later, it became spreadsheets and business models. Now, it's <strong>UX research and product design</strong> — and honestly, it feels like the place where all of it finally fits together. Before I found design, I spent years in <strong>finance and business analysis</strong> — roles where I learned to think in data, systems, and trade-offs. What I kept noticing, though, was that the <strong>human side of decisions</strong> often got lost. That's what pulled me toward UX.
+        I've always been someone who <strong>makes things</strong>. Growing up, that looked like sketchbooks and studio art classes. Later, it became spreadsheets and business models. Now, it's <strong>UX research and product design</strong> — the place where all of it finally fits together.
+      </p>
+      <p>
+        Before design, I spent years in <strong>finance and business analysis</strong>, learning to think in data, systems, and trade-offs. What I kept noticing was that the <strong>human side of decisions</strong> often got lost — and that's what pulled me toward UX.
+      </p>
+      <p>
+        I bring both sides to the table: the <strong>analytical rigor</strong> of someone who's lived in spreadsheets, and the <strong>empathy</strong> of someone who genuinely wants to understand what frustrates people and why. As a Master's student in <strong>Human-Centered Design & Engineering at the University of Washington</strong>, I care most about <strong>research-driven design</strong> — finding the insight that reframes the whole problem.
+      </p>
+      <p>
+        When I'm not designing, I'm cooking something new, doing puzzles, drawing, or out on a run. My mini goldendoodle supervises all of it.
       </p>
 
-      <p>
-        Now, as a Master's student in <strong>Human-Centered Design & Engineering at University of Washington</strong>, I bring both sides to the table: the <strong>analytical rigor</strong> of someone who's lived in spreadsheets, and the <strong>empathy</strong> of someone who genuinely wants to understand what frustrates people and why. I care most about <strong>research-driven design</strong> — finding the insight that reframes the whole problem.
-      </p>
-
-      <p>
-        When I'm not designing, I'm cooking something new, doing puzzles, or drawing. My mini goldendoodle supervises all of it.
+      <p class="about-cta">
+        Curious what this looks like in practice? Check out my{" "}
+        <a href="/projects" class="about-cta-link">projects →</a> or my{" "}
+        <a href="/art" class="about-cta-link">art →</a>
       </p>
     </div>
   </section>
